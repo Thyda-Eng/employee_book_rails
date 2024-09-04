@@ -16,13 +16,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_19_091636) do
 
   create_table "departments", force: :cascade do |t|
     t.string "name"
+    t.string "director_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "employees", force: :cascade do |t|
     t.string "name"
-    t.integer "age"
     t.string "gender"
     t.string "hobbies"
     t.datetime "created_at", null: false

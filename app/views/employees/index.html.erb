@@ -1,1 +1,51 @@
-My Employee View
+<div class="row pb-2">
+  <div class="col-auto me-auto">
+    <h5>List of Employees</h5>
+  </div>
+  <div class="col-auto">
+    <%= link_to 'Add new Employee', new_employee_path, class: 'btn btn-primary' %>
+  </div>
+</div>
+<% if flash[:notice] %>
+  <div class="alert alert-success" role="alert">
+    <% flash.each do |name,message| %>
+      <p class="text-success"><%= message%></p>
+    <% end %>
+  </div>
+<% end %>
+<% if flash[:errors] %>
+  <div class="alert alert-danger" role="alert">
+    <% flash.each do |name,message| %>
+      <p class="text-danger"><%= message%></p>
+    <% end %>
+  </div>
+<% end %>
+<div class="row">
+  <table class="table table-info">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Date of Birth</th>
+        <th scope="col">Department</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @employees.each do |employee| %>
+        <tr>
+          <td><%= employee.name %></td>
+          <td><%= employee.gender %></td>
+          <td><%= employee.dob %></td>
+          <td><%= employee.department.name %></td>
+          <td>
+            <%= button_to "Delete",employee_path(employee), method: :delete,
+              class: "btn btn-danger" %>
+          </td>
+          <td><%= link_to 'Edit', edit_employee_path(employee)%></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

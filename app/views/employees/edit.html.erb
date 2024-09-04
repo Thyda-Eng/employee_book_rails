@@ -1,0 +1,11 @@
+<h5>Edit Employee / <%= @employee.name %></h5>
+
+<% if flash[:errors] %>
+  <div class="alert alert-danger col-5" role="alert">
+    <% flash[:errors].each do |error| %>
+      <p class="text-danger"><%= error %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<%= render partial: 'employees/form', locals: {employee: @employee} %>

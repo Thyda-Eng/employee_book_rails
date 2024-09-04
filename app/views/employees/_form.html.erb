@@ -1,0 +1,57 @@
+<%= form_with model: @employee, data: { turbo: false } do |form| %>
+  <div class="row pb-3 pt-3">
+    <div class="col-1">
+      <%= form.label :name, class: 'col-form-label' %>
+    </div>
+    <div class="col-4">
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row pb-3">
+    <div class="col-1">
+      <%= form.label :gender, class: 'col-form-label' %>
+    </div>
+    <div class="col-4">
+      <%= form.radio_button :gender, "Female" %>
+      <%= form.label :gender_female, "Female" %>
+
+      <%= form.radio_button :gender, "Male" %>
+      <%= form.label :gender_male, "Male" %>
+    </div>
+  </div>
+
+  <div class="row pb-3">
+    <div class="col-1">
+      <%= form.label :dob, class: 'col-form-label' %>
+    </div>
+    <div class="col-4">
+      <%= form.date_field :dob, value: Date.today, class: 'form-control' %>
+    </div>
+  </div>
+  <div class="row pb-3">
+    <div class="col-1">
+      <%= form.label :department_id, class: 'col-form-label' %>
+    </div>
+    <div class="col-4">
+      <%= form.select :department_id, Department.order(:name).map { |d| [d.name, d.id] },
+      { prompt: '' }, class: 'form-select' %>
+    </div>
+  </div>
+
+  <div class="row pb-3">
+    <div class="col-1">
+      <%= form.label :hobbies, class: 'col-form-label' %>
+    </div>
+    <div class="col-4">
+      <%= form.text_area :hobbies, size: "70x5", class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-5 g-3 text-center">
+      <%= form.submit 'Save', class: 'btn btn-primary' %>
+    </div>
+  </div>
+
+<% end %>

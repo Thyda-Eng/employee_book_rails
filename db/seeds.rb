@@ -1,3 +1,5 @@
-Employee.create(name: "Rosa", gender: "Female", hobbies: 'Swimming')
-Employee.create(name: "Alex", gender: "Male")
-Employee.create(name: "Jonh", gender: "Male", hobbies: 'Reading')
+department = Department.create(name: 'PED')
+Employee.create(name: "Rosa", gender: "Female", hobbies: 'Swimming', department_id: department.id, dob: '1982-10-20')
+Employee.create(name: "Alex", gender: "Male", department_id: department.id, dob: '1979-09-08')
+department = Department.create(name: 'Emis')
+Employee.create(name: "Jonh", gender: "Male", hobbies: 'Reading', department_id: department.id, dob: '1994-02-07')

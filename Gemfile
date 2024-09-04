@@ -10,6 +10,9 @@ gem "sprockets-rails"
 
 gem "pg", "~> 1.1"
 
+gem "bootstrap", "~> 5.0"
+gem 'dartsass-sprockets'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 
